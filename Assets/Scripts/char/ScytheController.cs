@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ScytheController : MonoBehaviour {
 
+    public LevelController levelController;
+    
     [SerializeField][Range(0.1f, 10f)] private float attackSpeed = 1f;
     [SerializeField][Range(0.1f, 2f)] private float attackDuration = 0.5f;
     [SerializeField][Range(0.1f, 4f)] private float attackRange = 1.5f;
@@ -20,20 +22,25 @@ public class ScytheController : MonoBehaviour {
     }
 
     public void Attack(int sign) {
-        this._sign = sign;
         this._attackTarget = attackRange * new Vector3(sign, 0,0);
         this._isAttack = true;
         this._attackEndTime = Time.time + attackDuration;
     }
 
     private void Update() {
-        
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.DrawWireSphere(transform.position, 0.5f);
     }
 
     private void FixedUpdate() {
         if (_isAttack) {
-            float step = _sign * attackSpeed * Time.fixedDeltaTime ;
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, _attackTarget, step);
+            Debug.Log("target: " + _attackTarget);
+            float step = attackSpeed * Time.fixedDeltaTime ;
+            var position = transform.position;
+            position = Vector3.MoveTowards(position, _attackTarget + position, step* _sign);
+            transform.position = position;
         }
 
         if (_isAttack && (Time.time > this._attackEndTime)) {
@@ -49,7 +56,7 @@ public class ScytheController : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D other) {
         if (_isAttack) {
-            Debug.Log("triggered with: " + other);
+            levelController.targetHit(other);
         }
 
     }

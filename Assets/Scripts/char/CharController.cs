@@ -12,17 +12,21 @@ public class CharController : MonoBehaviour {
     [SerializeField] private float movementSmoothing;
     [SerializeField] private bool hasAirControl;
     [SerializeField][Range(0f,25f)] private float extraJumpGravity = 0.2f;
+    [SerializeField] [Range(0f, 0.5f)] private float jumpDelay = 0f;
     
     private Animator _animator;
     private const float GroundedRadius = .2f;
     private bool _isGrounded;
     private bool _isFacingRight;
     private Vector3 _velocity = Vector3.zero;
-
+    private float _jumpTime = 0;
+    private bool _shouldJump = false;
+    
     private Rigidbody2D _rigidbody2D;
     private static readonly int Speed = Animator.StringToHash("Speed");
     private static readonly int IsGrounded = Animator.StringToHash("isGrounded");
     private static readonly int Attack = Animator.StringToHash("Attack");
+    private static readonly int Jump = Animator.StringToHash("Jump");
 
     private void Awake() {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -59,9 +63,12 @@ public class CharController : MonoBehaviour {
         }
         
         if (_isGrounded && jump) {
-            _isGrounded = false;
-            _rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+            this._jumpTime = Time.time + jumpDelay;
+            _animator.SetTrigger(Jump);
+            _shouldJump = true;
         }
+        
+        checkJump();
 
         if (attack) {
             _animator.SetTrigger(Attack);
@@ -79,6 +86,14 @@ public class CharController : MonoBehaviour {
             Vector3 velocity = _rigidbody2D.velocity;
             velocity.y -= extraJumpGravity * Time.deltaTime;
             _rigidbody2D.velocity = velocity;
+        }
+    }
+    
+    private void checkJump() {
+        if (_shouldJump && Time.time > _jumpTime) {
+            _isGrounded = false;
+            _rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+            _shouldJump = false;
         }
     }
 

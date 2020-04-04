@@ -1,22 +1,16 @@
 fileFormatVersion: 2
-guid: 6bcfc97d83dad8c40839ac807b275785
+guid: 3022993b5b3484349a73497202146921
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7591272208723474577
-    second: toedchen_idle_front_0
+      213: 1527530662618297059
+    second: toedchen_jump_0
   - first:
-      213: -16052854274991842
-    second: toedchen_idle_front_1
+      213: -6670327626368319764
+    second: toedchen_jump_1
   - first:
-      213: 5424070259668103725
-    second: toedchen_idle_front_2
-  - first:
-      213: -5509079399291134418
-    second: toedchen_idle_front_3
-  - first:
-      213: 6955732253946947863
-    second: toedchen_idle_front_4
+      213: 21149055052612352
+    second: toedchen_jump_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -126,7 +120,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: toedchen_idle_front_0
+      name: toedchen_jump_0
       rect:
         serializedVersion: 2
         x: 0
@@ -140,14 +134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 198f1428add995960800000000000000
-      internalID: 7591272208723474577
+      spriteID: 3e271e06b01e23510800000000000000
+      internalID: 1527530662618297059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toedchen_idle_front_1
+      name: toedchen_jump_1
       rect:
         serializedVersion: 2
         x: 24
@@ -161,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e19de4b9308f6cff0800000000000000
-      internalID: -16052854274991842
+      spriteID: cee77de5d5c3e63a0800000000000000
+      internalID: -6670327626368319764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toedchen_idle_front_2
+      name: toedchen_jump_2
       rect:
         serializedVersion: 2
         x: 48
@@ -182,50 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d223748c92b264b40800000000000000
-      internalID: 5424070259668103725
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: toedchen_idle_front_3
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2e54d58971db83b0800000000000000
-      internalID: -5509079399291134418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: toedchen_idle_front_4
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7192c35c1a9b78060800000000000000
-      internalID: 6955732253946947863
+      spriteID: 0030fb914f22b4000800000000000000
+      internalID: 21149055052612352
       vertices: []
       indices: 
       edges: []
