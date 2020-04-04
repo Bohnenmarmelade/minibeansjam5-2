@@ -39,7 +39,7 @@ public class CharMovement : MonoBehaviour {
             pos.x -= movementSpeed * Time.deltaTime;
         }
         
-        if (Input.GetKey("space")) {
+        if (Input.GetKeyDown("space")) {
             animator.SetTrigger(Attack);
         }
              
