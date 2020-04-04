@@ -12,6 +12,10 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="background" t="Include">
+            <e p="BuildingMovement.cs" t="Include" />
+            <e p="FogMovement.cs" t="Include" />
+          </e>
           <e p="char" t="Include">
             <e p="CharController.cs" t="Include" />
             <e p="CharMovement.cs" t="Include" />
