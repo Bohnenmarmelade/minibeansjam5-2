@@ -127,7 +127,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -830457237
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 808112090532322481, guid: b64f7b4ae36178f46885a4f66a0dc278, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6485d430314ef4428405df152c6705a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.5
+  movementSpeed: 0.3
   movementSmoothing: 0.45
   wobbleSpeed: 4
   wobbleAmplitude: 0.45
@@ -187,6 +187,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae1e813b79f7cc42b1a083f87d0359c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 6639844496978924477}
   timeBetweenTargets: 3
   targetRadius: 2
