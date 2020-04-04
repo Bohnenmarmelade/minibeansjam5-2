@@ -12,6 +12,8 @@ public class LevelController : MonoBehaviour {
 
     public GameObject ghostTemplate;
 
+    public UI.TimeIndicator timeIndicator;
+
     [SerializeField] private float levelBoundsMinX = -20;
     [SerializeField] private float levelBoundsMaxX = 20;
     [SerializeField] private float levelBoundsMinY = -3;
@@ -30,6 +32,7 @@ public class LevelController : MonoBehaviour {
         _ghosts = new List<GameObject>();
         StartCoroutine(nameof(InitSpawnGhosts));
         _timeLeft = initialTime;
+
     }
 
     public void targetHit(Collider2D other) {
@@ -47,8 +50,8 @@ public class LevelController : MonoBehaviour {
 
     private void CountDown() {
         _timeLeft -= Time.fixedDeltaTime;
+        timeIndicator.TimeLeft = _timeLeft;
         if (_timeLeft <= 0) {
-            Debug.Log("GAME OVER");
             EventManager.TriggerEvent(Events.GAME_OVER, ""+_ghostCount);
         }
     }

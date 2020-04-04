@@ -53,7 +53,7 @@ public class GhostController : MonoBehaviour {
 
     public void Die() {
         _animator.SetTrigger(Dead);
-        Destroy(gameObject, .5f);
+        Destroy(gameObject, .31f);
     }
 
     private void Flip() {
