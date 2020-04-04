@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: c587072f392285d48b3a3a85422598f4
+guid: fa4280a31d1bb7e4dbb6f53ae881ebd9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8305565669767278691
-    second: toedchen_elasic_skythe_0
+      213: 8961622695270704656
+    second: toedchen_schlag_0
   - first:
-      213: 6453777946976412188
-    second: toedchen_elasic_skythe_1
+      213: -2753449055708759359
+    second: toedchen_schlag_1
   - first:
-      213: 8550917363167497795
-    second: toedchen_elasic_skythe_2
-  - first:
-      213: -7738869819056292365
-    second: toedchen_elasic_skythe_3
+      213: -1485978420873732348
+    second: toedchen_schlag_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -123,85 +120,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: toedchen_elasic_skythe_0
+      name: toedchen_schlag_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
+        width: 72
         height: 48
       alignment: 9
-      pivot: {x: 0.7916667, y: 0.5}
+      pivot: {x: 0.6944445, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9f87d23704bcbc80800000000000000
-      internalID: -8305565669767278691
+      spriteID: 01660b25c541e5c70800000000000000
+      internalID: 8961622695270704656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toedchen_elasic_skythe_1
+      name: toedchen_schlag_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 72
         y: 0
-        width: 48
+        width: 72
         height: 48
       alignment: 9
-      pivot: {x: 0.7916667, y: 0.5}
+      pivot: {x: 0.6805556, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1267c469dc609950800000000000000
-      internalID: 6453777946976412188
+      spriteID: 1ca38571ca8c9c9d0800000000000000
+      internalID: -2753449055708759359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toedchen_elasic_skythe_2
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 48
-        height: 48
-      alignment: 9
-      pivot: {x: 0.20833333, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34e815f7906faa670800000000000000
-      internalID: 8550917363167497795
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: toedchen_elasic_skythe_3
+      name: toedchen_schlag_2
       rect:
         serializedVersion: 2
         x: 144
         y: 0
-        width: 48
+        width: 72
         height: 48
       alignment: 9
-      pivot: {x: 0.7916667, y: 0.5}
+      pivot: {x: 0.7083333, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fd7820e6e20a9490800000000000000
-      internalID: -7738869819056292365
+      spriteID: 40fdcefcf7eb06be0800000000000000
+      internalID: -1485978420873732348
       vertices: []
       indices: 
       edges: []

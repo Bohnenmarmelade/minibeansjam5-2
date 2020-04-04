@@ -6,7 +6,17 @@ public class GhostController : MonoBehaviour {
     [SerializeField] private float movementSmoothing = 0.1f;
     [SerializeField][Range(0.1f, 10f)] private float wobbleSpeed = 4f;
     [SerializeField][Range(0.1f, 10f)] private float wobbleAmplitude = 7f;
-    
+
+    public float WobbleSpeed {
+        get => wobbleSpeed;
+        set => wobbleSpeed = value;
+    }
+
+    public float WobbleAmplitude {
+        get => wobbleAmplitude;
+        set => wobbleAmplitude = value;
+    }
+
     private bool _isFacingRight;
     private Vector3 _velocity = Vector3.zero;
     
@@ -17,15 +27,16 @@ public class GhostController : MonoBehaviour {
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate() {
-        Vector3 pos = transform.position;
-        pos.y = (float) Math.Sin(Time.time * wobbleSpeed) * Time.fixedDeltaTime * wobbleAmplitude;
-        transform.position = pos;
+    private void Update() {
+        Vector3 pos = _rigidbody2D.transform.position;
+        Vector3 newPos = new Vector2(pos.x,
+            (float) Math.Sin(Time.time * wobbleSpeed) * Time.fixedDeltaTime * wobbleAmplitude + pos.y);
+        _rigidbody2D.transform.position = newPos;
     }
 
     public void Move(float moveH) {
         var velocity = _rigidbody2D.velocity;
-        Vector3 targetVelocity = new Vector3(moveH, velocity.y);
+        Vector3 targetVelocity = new Vector3(moveH, _velocity.y);
         //smoothing movement
         _rigidbody2D.velocity =
             Vector3.SmoothDamp(velocity, targetVelocity, ref _velocity, movementSmoothing);

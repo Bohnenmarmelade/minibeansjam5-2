@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6639844496978924476}
   m_Layer: 10
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
   movementSpeed: 0.5
   movementSmoothing: 0.45
   wobbleSpeed: 4
-  wobbleAmplitude: 7
+  wobbleAmplitude: 0.45
 --- !u!114 &6639844496978924476
 MonoBehaviour:
   m_ObjectHideFlags: 0
