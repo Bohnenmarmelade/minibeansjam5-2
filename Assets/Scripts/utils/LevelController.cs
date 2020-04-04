@@ -8,8 +8,11 @@ using Random = UnityEngine.Random;
 namespace Utils {
     public class LevelController : MonoBehaviour {
 
+        public GameObject[] flummyTemplates;
         public GameObject gateTemplate;
         public GameObject ghostTemplate;
+        public GameObject boxTemplate;
+        public GameObject obstacleParent;
         private GateController _gateController;
         
         public UI.TimeIndicator timeIndicator;
@@ -20,6 +23,8 @@ namespace Utils {
         [SerializeField] private float levelBoundsMaxY = 5;
         [SerializeField] private int initialGhostsAmount = 10;
         [SerializeField] private int bonusSecondsPerGhost = 5;
+        [SerializeField] private int initialBoxAmount = 20;
+        [SerializeField] private int initialFlummyAmount = 20;
     
         [SerializeField] private float initialTime = 10;
 
@@ -34,6 +39,8 @@ namespace Utils {
         private void Awake() {
             _ghosts = new List<GameObject>();
             StartCoroutine(nameof(InitSpawnGhosts));
+            StartCoroutine(nameof(InitSpawnBoxes));
+            StartCoroutine(nameof(InitSpawnFlummies));
             SpawnGate();
             _timeLeft = initialTime;
 
@@ -112,11 +119,38 @@ namespace Utils {
             _ghosts.Add(g);
         }
 
+        private void SpawnBox() {
+            GameObject g = Instantiate(boxTemplate, 
+                new Vector2(Random.Range(levelBoundsMinX, levelBoundsMaxX),
+                    Random.Range(levelBoundsMinY, levelBoundsMaxY)), Quaternion.identity, obstacleParent.transform);
+        }
+
+        private void SpawnFlummy() {
+            int index = Random.Range(0, flummyTemplates.Length);
+            GameObject g = Instantiate(flummyTemplates[index], 
+                new Vector2(Random.Range(levelBoundsMinX, levelBoundsMaxX),
+                    Random.Range(levelBoundsMinY, levelBoundsMaxY)), Quaternion.identity, obstacleParent.transform);
+        }
+
         IEnumerator InitSpawnGhosts() {
             for (int i = 0; i < initialGhostsAmount; i++) {
                 SpawnGhost();
                 yield return null;
             }   
+        }
+
+        IEnumerator InitSpawnBoxes() {
+            for (int i = 0; i < initialBoxAmount; i++) {
+                SpawnBox();
+                yield return null;
+            }
+        }
+
+        IEnumerator InitSpawnFlummies() {
+            for (int i = 0; i < initialFlummyAmount; i++) {
+                SpawnFlummy();
+                yield return null;
+            }
         }
 
 
