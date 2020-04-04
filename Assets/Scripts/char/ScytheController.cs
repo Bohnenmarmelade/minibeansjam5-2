@@ -36,7 +36,6 @@ public class ScytheController : MonoBehaviour {
 
     private void FixedUpdate() {
         if (_isAttack) {
-            Debug.Log("target: " + _attackTarget);
             float step = attackSpeed * Time.fixedDeltaTime ;
             var position = transform.position;
             position = Vector3.MoveTowards(position, _attackTarget + position, step* _sign);

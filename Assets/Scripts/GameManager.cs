@@ -28,8 +28,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainScene");
     }
     private void onGameOver(string gameOverPayload) {
-        Debug.Log("GameOver Dude!!!");
-        SceneManager.LoadScene("GameOverScene");
+        Debug.Log("GameOver Dude!!! " +  gameOverPayload);
+        SceneManager.LoadScene("MainScene");
     }
 }
 

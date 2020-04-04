@@ -6,6 +6,7 @@ public class GhostController : MonoBehaviour {
     [SerializeField] private float movementSmoothing = 0.1f;
     [SerializeField][Range(0.1f, 10f)] private float wobbleSpeed = 4f;
     [SerializeField][Range(0.1f, 10f)] private float wobbleAmplitude = 7f;
+    private Animator _animator;
 
     public float WobbleSpeed {
         get => wobbleSpeed;
@@ -22,9 +23,11 @@ public class GhostController : MonoBehaviour {
     
     
     private Rigidbody2D _rigidbody2D;
-    
+    private static readonly int Dead = Animator.StringToHash("Dead");
+
     private void Awake() {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update() {
@@ -46,7 +49,11 @@ public class GhostController : MonoBehaviour {
         } else if (moveH < 0 && _isFacingRight) {
             Flip();
         }
+    }
 
+    public void Die() {
+        _animator.SetTrigger(Dead);
+        Destroy(gameObject, .5f);
     }
 
     private void Flip() {
