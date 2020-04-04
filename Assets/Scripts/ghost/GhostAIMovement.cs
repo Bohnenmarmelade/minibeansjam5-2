@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 namespace Ghost {
     public class GhostAiMovement : MonoBehaviour {
     
-        public GhostController controller;
+        private GhostController _controller;
 
         [SerializeField] private float timeBetweenTargets = 3f; // in seconds
 
@@ -20,6 +20,7 @@ namespace Ghost {
         private int _sign = 1;
 
         private void Awake() {
+            _controller = GetComponent<GhostController>();
             _sign = Random.value < 0.5f ? -1 : 1;
             FindNextTarget();
         }
@@ -30,7 +31,7 @@ namespace Ghost {
                 FindNextTarget();
             }
 
-            controller.Move(_moveH);
+            _controller.Move(_moveH);
         }
 
         private void FindNextTarget() {
