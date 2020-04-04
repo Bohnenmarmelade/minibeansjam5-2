@@ -669,7 +669,8 @@ AudioSource:
   m_GameObject: {fileID: 436634674}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3261563285537202858, guid: f88d66a1ec6296140a6ae8306c601615,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1451,6 +1452,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1252380802}
   - component: {fileID: 1252380801}
+  - component: {fileID: 1252380803}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -1496,6 +1498,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1252380803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252380800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e0744c9b3041247ae3ad7b9501cd15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1547779947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1917,6 +1931,11 @@ PrefabInstance:
       propertyPath: levelController
       value: 
       objectReference: {fileID: 1252380801}
+    - target: {fileID: 3692139732191401493, guid: 00af6e624392a2c44bf03c1e5e49e48f,
+        type: 3}
+      propertyPath: jumpForce
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 8402330871755021199, guid: 00af6e624392a2c44bf03c1e5e49e48f,
         type: 3}
       propertyPath: levelController

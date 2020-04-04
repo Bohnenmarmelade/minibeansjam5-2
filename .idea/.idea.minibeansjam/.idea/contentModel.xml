@@ -37,6 +37,7 @@
             <e p="EventManager.cs" t="Include" />
             <e p="Events.cs" t="Include" />
             <e p="LevelController.cs" t="Include" />
+            <e p="MusicController.cs" t="Include" />
             <e p="SFXController.cs" t="Include" />
           </e>
         </e>
