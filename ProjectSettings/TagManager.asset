@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Ground
+  - Gate
   layers:
   - Default
   - TransparentFX
@@ -48,6 +49,9 @@ TagManager:
     locked: 0
   - name: Background2
     uniqueID: 678793063
+    locked: 0
+  - name: Obstacles
+    uniqueID: 1199284351
     locked: 0
   - name: Ground
     uniqueID: 429765753

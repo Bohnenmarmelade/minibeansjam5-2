@@ -22,6 +22,9 @@
             <e p="ScytheController.cs" t="Include" />
           </e>
           <e p="GameManager.cs" t="Include" />
+          <e p="gate" t="Include">
+            <e p="GateController.cs" t="Include" />
+          </e>
           <e p="ghost" t="Include">
             <e p="GhostAIMovement.cs" t="Include" />
             <e p="GhostController.cs" t="Include" />

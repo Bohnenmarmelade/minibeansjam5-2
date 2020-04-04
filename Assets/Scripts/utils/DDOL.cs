@@ -1,10 +1,10 @@
-﻿
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class DDOL : MonoBehaviour
-{
-    private void Awake() {
-        DontDestroyOnLoad(gameObject);
+namespace Utils {
+    public class DDOL : MonoBehaviour
+    {
+        private void Awake() {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }
