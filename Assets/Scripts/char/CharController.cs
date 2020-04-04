@@ -1,9 +1,12 @@
 ﻿using System;
 using UnityEngine;
+using Utils;
 
 namespace Char {
     public class CharController : MonoBehaviour {
 
+        public LevelController levelController;
+        
         public ScytheController scytheController;
     
         [SerializeField] private float jumpForce = 100f;
@@ -75,6 +78,7 @@ namespace Char {
                 _animator.SetTrigger(Attack);
                 int sign = _isFacingRight ? 1 : -1;
                 scytheController.Attack(sign);
+                EventManager.TriggerEvent(Events.SFX_SCYTHE, "");
             }
 
             if (_isGrounded) {
@@ -95,6 +99,18 @@ namespace Char {
                 _isGrounded = false;
                 _rigidbody2D.AddForce(new Vector2(0f, jumpForce));
                 _shouldJump = false;
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other) {
+            if (other.CompareTag("Gate")) {
+                levelController.GateEntered();
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other) {
+            if (other.CompareTag("Gate")) {
+                levelController.GateLeft();
             }
         }
 

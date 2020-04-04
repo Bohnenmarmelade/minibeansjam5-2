@@ -4,5 +4,8 @@
         public const string GAME_OVER = "gameOver";
         public const string SHOW_TITLE = "showTitle";
         public const string START_GAME = "startGame";
+
+        public const string SFX_SCYTHE = "sfxScythe";
+        public const string SFX_GHOST_DIE = "sfxGhostDie";
     };
 }

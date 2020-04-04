@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using Gate;
 using Ghost;
 using UnityEngine;
-using Utils;
 using Random = UnityEngine.Random;
 
 namespace Utils {
     public class LevelController : MonoBehaviour {
 
-        public GateController gateController;
+        public GameObject gateTemplate;
         public GameObject ghostTemplate;
-
+        private GateController _gateController;
+        
         public UI.TimeIndicator timeIndicator;
 
         [SerializeField] private float levelBoundsMinX = -20;
@@ -19,6 +19,7 @@ namespace Utils {
         [SerializeField] private float levelBoundsMinY = -3;
         [SerializeField] private float levelBoundsMaxY = 5;
         [SerializeField] private int initialGhostsAmount = 10;
+        [SerializeField] private int bonusSecondsPerGhost = 5;
     
         [SerializeField] private float initialTime = 10;
 
@@ -26,11 +27,14 @@ namespace Utils {
     
         private int _ghostCount = 0; //how many ghosts did the player slay
         private float _timeLeft;
-    
+
+        private bool _isPlayerAtGate = false;
+        
 
         private void Awake() {
             _ghosts = new List<GameObject>();
             StartCoroutine(nameof(InitSpawnGhosts));
+            SpawnGate();
             _timeLeft = initialTime;
 
         }
@@ -46,6 +50,9 @@ namespace Utils {
 
         private void FixedUpdate() {
             CountDown();
+            if (ShouldSpawnGhost()) {
+                SpawnGhost();
+            }
         }
 
         private void CountDown() {
@@ -56,20 +63,58 @@ namespace Utils {
             }
         }
 
-        IEnumerator InitSpawnGhosts() {
-            GameObject g;
-            for (int i = 0; i < initialGhostsAmount; i++) {
-                var timeBetweenTargets = Random.Range(2f, 5f);
-                var wobbleSpeed = Random.Range(3f, 5f); // 3 - 5
-                var wobbleAmplitude = Random.Range(.35f, .55f); // .35 .55
-                g = Instantiate(ghostTemplate,
-                    new Vector2(Random.Range(levelBoundsMinX, levelBoundsMaxX),
-                        Random.Range(levelBoundsMinY, levelBoundsMaxY)), Quaternion.identity);
-                g.GetComponent<GhostAiMovement>().TimeBetweenTargets = timeBetweenTargets;
-                g.GetComponent<GhostController>().WobbleSpeed = wobbleSpeed;
-                g.GetComponent<GhostController>().WobbleAmplitude = wobbleAmplitude;
+        private void PayGhosts() {
+            float extraTime = (float) bonusSecondsPerGhost * _ghostCount;
+            _ghostCount = 0;
+            _timeLeft += extraTime;
+        }
 
-                _ghosts.Add(g);
+        public void GateEntered() {
+            if (!_isPlayerAtGate) {
+                Debug.Log("yo you entered the gate to heaven");
+                _gateController.Open();
+                _isPlayerAtGate = true;
+                PayGhosts();
+            }
+        }
+
+        public void GateLeft() {
+            if (_isPlayerAtGate) {
+                Debug.Log("yo you left the gate :(");
+                _gateController.Close();
+                _isPlayerAtGate = false;
+            }
+        }
+
+        private void SpawnGate() {
+            Vector3 pos = Vector3.zero;
+            pos.x = Random.Range(levelBoundsMinX, levelBoundsMaxX);
+
+            var i = Instantiate(gateTemplate, pos, Quaternion.identity);
+            _gateController = i.GetComponent<GateController>();
+        }
+
+        private bool ShouldSpawnGhost() {
+            return _ghosts.Count < 8;
+        }
+
+        private void SpawnGhost() {
+            var timeBetweenTargets = Random.Range(2f, 5f);
+            var wobbleSpeed = Random.Range(3f, 5f); // 3 - 5
+            var wobbleAmplitude = Random.Range(.35f, .55f); // .35 .55
+            GameObject g = Instantiate(ghostTemplate,
+                new Vector2(Random.Range(levelBoundsMinX, levelBoundsMaxX),
+                    Random.Range(levelBoundsMinY, levelBoundsMaxY)), Quaternion.identity);
+            g.GetComponent<GhostAiMovement>().TimeBetweenTargets = timeBetweenTargets;
+            g.GetComponent<GhostController>().WobbleSpeed = wobbleSpeed;
+            g.GetComponent<GhostController>().WobbleAmplitude = wobbleAmplitude;
+
+            _ghosts.Add(g);
+        }
+
+        IEnumerator InitSpawnGhosts() {
+            for (int i = 0; i < initialGhostsAmount; i++) {
+                SpawnGhost();
                 yield return null;
             }   
         }

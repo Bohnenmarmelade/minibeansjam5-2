@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Utils;
 
 namespace Ghost {
     public class GhostController : MonoBehaviour {
@@ -53,6 +54,7 @@ namespace Ghost {
         }
 
         public void Die() {
+            EventManager.TriggerEvent(Events.SFX_GHOST_DIE, "");
             _animator.SetTrigger(Dead);
             Destroy(gameObject, .31f);
         }

@@ -17,10 +17,10 @@ namespace Ghost {
     
         private float _nextTargetTime = 0f;
         private float _moveH = 0;
-        private int sign = 1;
+        private int _sign = 1;
 
         private void Awake() {
-            sign = Random.value < 0.5f ? -1 : 1;
+            _sign = Random.value < 0.5f ? -1 : 1;
             FindNextTarget();
         }
     
@@ -35,9 +35,9 @@ namespace Ghost {
 
         private void FindNextTarget() {
             //find a target in vicinity
-            _moveH = targetRadius * sign;
+            _moveH = targetRadius * _sign;
             _nextTargetTime = Time.time + timeBetweenTargets;
-            sign *= -1;
+            _sign *= -1;
         }
     }
 }
