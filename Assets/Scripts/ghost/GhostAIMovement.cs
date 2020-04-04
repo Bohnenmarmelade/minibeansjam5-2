@@ -2,7 +2,7 @@
 using Random = UnityEngine.Random;
 
 namespace Ghost {
-    public class GhostAiMovement : MonoBehaviour {
+    public class GhostAIMovement : MonoBehaviour {
     
         private GhostController _controller;
 

@@ -105,7 +105,7 @@ namespace Utils {
             GameObject g = Instantiate(ghostTemplate,
                 new Vector2(Random.Range(levelBoundsMinX, levelBoundsMaxX),
                     Random.Range(levelBoundsMinY, levelBoundsMaxY)), Quaternion.identity);
-            g.GetComponent<GhostAiMovement>().TimeBetweenTargets = timeBetweenTargets;
+            g.GetComponent<GhostAIMovement>().TimeBetweenTargets = timeBetweenTargets;
             g.GetComponent<GhostController>().WobbleSpeed = wobbleSpeed;
             g.GetComponent<GhostController>().WobbleAmplitude = wobbleAmplitude;
 
