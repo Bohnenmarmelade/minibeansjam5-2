@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 548311014755431265}
   - component: {fileID: 548311014755431264}
   - component: {fileID: 548311014755431267}
+  - component: {fileID: 326062600094720811}
   m_Layer: 11
   m_Name: Flummi_2
-  m_TagString: Untagged
+  m_TagString: Flummy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,3 +121,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.13567236
+--- !u!114 &326062600094720811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548311014755431277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abcb16501a3f04d44ab890ed3d3cb27d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 548311014755431264}

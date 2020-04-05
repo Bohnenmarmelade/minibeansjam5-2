@@ -3288,6 +3288,11 @@ PrefabInstance:
       propertyPath: hitboxOffset.y
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 1831042059116187696, guid: 00af6e624392a2c44bf03c1e5e49e48f,
+        type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 7168
+      objectReference: {fileID: 0}
     - target: {fileID: 2952746987370266201, guid: 00af6e624392a2c44bf03c1e5e49e48f,
         type: 3}
       propertyPath: m_Name

@@ -22,6 +22,7 @@
             <e p="CharMovement.cs" t="Include" />
             <e p="ScytheController.cs" t="Include" />
           </e>
+          <e p="Flummy.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="gate" t="Include">
             <e p="GateController.cs" t="Include" />

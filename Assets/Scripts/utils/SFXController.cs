@@ -46,7 +46,6 @@ public class SFXController : MonoBehaviour {
         _source.PlayOneShot(gate);
     }
     private void OnPlayBox(string payload) {
-        Debug.Log("playing box");
         _source.PlayOneShot(box);
     }
 

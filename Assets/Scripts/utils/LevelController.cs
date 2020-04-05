@@ -70,6 +70,9 @@ namespace Utils {
                 }
             } else if (other.CompareTag($"Box")) {
                 EventManager.TriggerEvent(Events.SFX_BOX);
+            } else if (other.CompareTag($"Flummy")) {
+                other.GetComponent<Flummy>().Jump();
+
             }
         }
 

@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Gate
   - Box
+  - Flummy
   layers:
   - Default
   - TransparentFX
