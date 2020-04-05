@@ -18,6 +18,8 @@ namespace Utils {
         public GameObject obstacleParent;
 
         private GateController _gateController;
+
+        public Counter _counterController;
         
         
         public UI.TimeIndicator timeIndicator;
@@ -58,8 +60,9 @@ namespace Utils {
             //Debug.Log("target hit");
             if (other.CompareTag($"Enemy")) {
                 _ghostCount++;
+                Debug.Log("you have " + _ghostCount + " souls");
                 other.GetComponent<GhostController>().Die();
-                //Destroy(other.gameObject);
+                _counterController.SetCount(_ghostCount);
             }
         }
 
@@ -84,6 +87,7 @@ namespace Utils {
             float extraTime = (float) bonusSecondsPerGhost * _ghostCount;
             _ghostCount = 0;
             _timeLeft += extraTime;
+            _counterController.SetCount(_ghostCount);
         }
 
         public void GateEntered() {

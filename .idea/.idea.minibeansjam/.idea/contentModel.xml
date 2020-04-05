@@ -32,9 +32,11 @@
           </e>
           <e p="UI" t="Include">
             <e p="ButtonTriggers.cs" t="Include" />
+            <e p="CounterController.cs" t="Include" />
             <e p="TimeIndicator.cs" t="Include" />
           </e>
           <e p="utils" t="Include">
+            <e p="Counter.cs" t="Include" />
             <e p="DDOL.cs" t="Include" />
             <e p="EventManager.cs" t="Include" />
             <e p="Events.cs" t="Include" />
