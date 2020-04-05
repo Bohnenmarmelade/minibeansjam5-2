@@ -123,7 +123,7 @@ namespace Utils {
 
         private void SpawnGate() {
             Vector3 pos = Vector3.zero;
-            pos.x = Random.Range(levelBoundsMinX, levelBoundsMaxX);
+            pos.x = Random.Range(levelBoundsMinX +5, levelBoundsMaxX -5);
 
             var i = Instantiate(gateTemplate, pos, Quaternion.identity);
             timeIndicator.transform.position = pos+timeIndicatorOffset;
