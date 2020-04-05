@@ -884,8 +884,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scytheSlay: {fileID: 8300000, guid: 3708e07bb9c78004b8ee40363dfdb7ec, type: 3}
-  ghostDie: {fileID: 8300000, guid: e839d623f5368e942b284b780ced48e9, type: 3}
-  gate: {fileID: 8300000, guid: b0b6a01ec71f6364485f2e5bcf5b7747, type: 3}
+  ghostDie: {fileID: 8300000, guid: da61bb88925a1e745bec3c306b059f07, type: 3}
+  gate: {fileID: 8300000, guid: 1bc32a2f454f8f24aa5f722f263abb81, type: 3}
   box: {fileID: 8300000, guid: 9fc86b733c4934148bfce54d5d75fabf, type: 3}
   tick: {fileID: 8300000, guid: 8552678293b012a40bd5132dca428693, type: 3}
 --- !u!1 &702057437
@@ -2008,7 +2008,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
