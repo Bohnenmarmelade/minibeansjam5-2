@@ -84,7 +84,6 @@ namespace Utils {
             float extraTime = (float) bonusSecondsPerGhost * _ghostCount;
             _ghostCount = 0;
             _timeLeft += extraTime;
-            Debug.Log("time left after PAY: " +_timeLeft);
         }
 
         public void GateEntered() {

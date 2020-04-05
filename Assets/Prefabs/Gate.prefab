@@ -95,6 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95769da35c5e1cc44885175ebf1070a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteGateClosed: {fileID: -7341407202210888751, guid: 9dc9eaf03d583df438f90c379cf6586e,
+    type: 3}
+  spriteGateOpen: {fileID: 6623719234781301212, guid: 9dc9eaf03d583df438f90c379cf6586e,
+    type: 3}
 --- !u!61 &137593444837756285
 BoxCollider2D:
   m_ObjectHideFlags: 0
