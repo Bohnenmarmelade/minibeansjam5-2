@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 2098236187}
-  movementMultiplier: 2.98
+  movementMultiplier: 3
 --- !u!1 &67623155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1990,7 +1990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 2098236187}
-  movementMultiplier: 1.83
+  movementMultiplier: 2.2
 --- !u!1 &1727103656
 GameObject:
   m_ObjectHideFlags: 0
