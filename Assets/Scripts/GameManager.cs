@@ -1,16 +1,26 @@
-﻿using UnityEngine; 
+﻿using System;
+using UnityEngine; 
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Utils;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
+
+    [SerializeField] private bool debug = false;
+    [SerializeField] private String debugScene;
     void OnEnable()
     {
         EventManager.StartListening(Events.GAME_OVER, onGameOver);
         EventManager.StartListening(Events.START_GAME, onStartGame);
         EventManager.StartListening(Events.SHOW_TITLE, onShowTitleScreen);
-        SceneManager.LoadScene("MainScene");
+
+        if (debug && debugScene != null) {
+            SceneManager.LoadScene(debugScene);
+        }
+        else {
+            SceneManager.LoadScene("TitleScene");
+        }
+
     }
 
     void OnDisable()
@@ -21,12 +31,11 @@ public class GameManager : MonoBehaviour
     public void onShowTitleScreen(string _)
     {
         EventManager.StopListening(Events.SHOW_TITLE, onShowTitleScreen);
-        SceneManager.LoadScene("TitleScreen");
+        SceneManager.LoadScene("TitleScene");
     }
 
     private void onStartGame(string eventPayload){
-        SceneManager.LoadScene("GameOverScene");
-        //SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MainScene");
     }
     private void onGameOver(string gameOverPayload) {
         Debug.Log("GameOver Dude!!! " +  gameOverPayload);
