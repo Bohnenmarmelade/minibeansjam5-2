@@ -8,7 +8,8 @@ using Random = UnityEngine.Random;
 
 namespace Utils {
     public class LevelController : MonoBehaviour {
-        
+
+        public GameObject[] platformTemplates;
         public GameObject[] flummyTemplates;
         public GameObject gateTemplate;
         public GameObject ghostTemplate;
@@ -26,6 +27,7 @@ namespace Utils {
         [SerializeField] private int bonusSecondsPerGhost = 5;
         [SerializeField] private int initialBoxAmount = 20;
         [SerializeField] private int initialFlummyAmount = 20;
+        [SerializeField] private int initialPlatformAmount = 3;
     
         [SerializeField] private float initialTime = 10;
 
@@ -39,6 +41,7 @@ namespace Utils {
 
         private void Awake() {
             _ghosts = new List<GameObject>();
+            StartCoroutine(nameof(InitSpawnPlatforms));
             StartCoroutine(nameof(InitSpawnGhosts));
             StartCoroutine(nameof(InitSpawnBoxes));
             StartCoroutine(nameof(InitSpawnFlummies));
@@ -136,6 +139,13 @@ namespace Utils {
                     Random.Range(levelBoundsMinY, levelBoundsMaxY)), Quaternion.identity, obstacleParent.transform);
         }
 
+        public void SpawnPlatform() {
+            int index = Random.Range(0, platformTemplates.Length);
+            GameObject g = Instantiate(platformTemplates[index], 
+                new Vector2(Random.Range(levelBoundsMinX+5, levelBoundsMaxX-5),
+                    2.6666f), Quaternion.identity);
+        }
+
         IEnumerator InitSpawnGhosts() {
             for (int i = 0; i < initialGhostsAmount; i++) {
                 SpawnGhost();
@@ -153,6 +163,13 @@ namespace Utils {
         IEnumerator InitSpawnFlummies() {
             for (int i = 0; i < initialFlummyAmount; i++) {
                 SpawnFlummy();
+                yield return null;
+            }
+        }
+
+        IEnumerator InitSpawnPlatforms() {
+            for (int i = 0; i < initialPlatformAmount; i++) {
+                SpawnPlatform();
                 yield return null;
             }
         }

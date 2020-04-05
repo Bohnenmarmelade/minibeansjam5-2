@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 48244465}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 51061556}
   m_RootOrder: 0
@@ -1959,6 +1959,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae3b7afabec2954d8fedaf70ed95cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformTemplates:
+  - {fileID: 4987815146647357543, guid: 6a6fc4196cb1a834a80e78d1a51304ae, type: 3}
+  - {fileID: 5436559630411245847, guid: c9bea1b2460ba2d40b06f99faf1b46a8, type: 3}
+  - {fileID: 8888991650857959992, guid: 825153fb7050a1046aa2b8f47697c70a, type: 3}
   flummyTemplates:
   - {fileID: 7665880851883442210, guid: 688512b58888fe248803566ec73d4b0d, type: 3}
   - {fileID: 548311014755431277, guid: dae5517c23d53cb42bf137ea69267ed3, type: 3}
@@ -1974,7 +1978,7 @@ MonoBehaviour:
   levelBoundsMinX: -18
   levelBoundsMaxX: 38
   levelBoundsMinY: 0
-  levelBoundsMaxY: 5
+  levelBoundsMaxY: 7
   initialGhostsAmount: 10
   bonusSecondsPerGhost: 2
   initialBoxAmount: 20
