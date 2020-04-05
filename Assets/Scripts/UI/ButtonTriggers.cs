@@ -9,7 +9,7 @@ namespace UI {
         }
 
         public void OnStartButton() {
-            EventManager.TriggerEvent(Events.START_GAME);
+            EventManager.TriggerEvent(Events.SHOW_COMIC);
         }
     }
 }

@@ -5,14 +5,17 @@ using UnityEngine.SceneManagement;
 using Utils;
 
 public class GameManager : MonoBehaviour {
-
+   
     [SerializeField] private bool debug = false;
     [SerializeField] private String debugScene;
+
+
     void OnEnable()
     {
         EventManager.StartListening(Events.GAME_OVER, onGameOver);
         EventManager.StartListening(Events.START_GAME, onStartGame);
         EventManager.StartListening(Events.SHOW_TITLE, onShowTitleScreen);
+        EventManager.StartListening(Events.SHOW_COMIC, onShowComic);
 
         if (debug && debugScene != null) {
             SceneManager.LoadScene(debugScene);
@@ -26,6 +29,9 @@ public class GameManager : MonoBehaviour {
     void OnDisable()
     {
         EventManager.StopListening(Events.GAME_OVER, onGameOver);
+        EventManager.StopListening(Events.START_GAME, onStartGame);
+        EventManager.StopListening(Events.SHOW_TITLE, onShowTitleScreen);
+        EventManager.StopListening(Events.SHOW_COMIC, onShowComic);
     }
     
     public void onShowTitleScreen(string _)
@@ -40,7 +46,10 @@ public class GameManager : MonoBehaviour {
     private void onGameOver(string gameOverPayload) {
         Debug.Log("GameOver Dude!!! " +  gameOverPayload);
         SceneManager.LoadScene("GameOverScene");
-        //SceneManager.LoadScene("MainScene");
+    }
+
+    private void onShowComic(string comicPayload) {
+        SceneManager.LoadScene("ComicScene");
     }
 }
 

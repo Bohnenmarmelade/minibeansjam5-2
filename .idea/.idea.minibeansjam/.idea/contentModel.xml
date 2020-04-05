@@ -36,6 +36,7 @@
             <e p="TimeIndicator.cs" t="Include" />
           </e>
           <e p="utils" t="Include">
+            <e p="ComicController.cs" t="Include" />
             <e p="Counter.cs" t="Include" />
             <e p="DDOL.cs" t="Include" />
             <e p="EventManager.cs" t="Include" />

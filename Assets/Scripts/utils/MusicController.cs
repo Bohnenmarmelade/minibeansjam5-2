@@ -3,10 +3,9 @@ using UnityEngine;
 
 namespace Utils {
     public class MusicController : MonoBehaviour {
-
-        private AudioClip _clipToPlay;
-
         public AudioClip gameMusic;
+        public AudioClip comicMusic;
+        private AudioClip _clipToPlay;
 
         private AudioSource _source;
 
@@ -18,11 +17,12 @@ namespace Utils {
 
         private void Awake() {
             _source = GetComponent<AudioSource>();
+            _clipToPlay = gameMusic;
         }
 
         private void OnEnable() {
             EventManager.StartListening(Events.MUSIC_GAME, OnPlayGameMusic);
-            _clipToPlay = gameMusic;
+            EventManager.StartListening(Events.SHOW_COMIC, OnPlayComicMusic);
             _startVolume = _source.volume;
             _source.volume = 0.0f;
             _fadeIn = true;
@@ -30,6 +30,7 @@ namespace Utils {
 
         private void OnDisable() {
             EventManager.StopListening(Events.MUSIC_GAME, OnPlayGameMusic);
+            EventManager.StopListening(Events.SHOW_COMIC, OnPlayComicMusic);
         }
 
         private void Update () {
@@ -51,6 +52,10 @@ namespace Utils {
 
         private void OnPlayGameMusic(string payload) {
             _clipToPlay = gameMusic;
+        }
+
+        public void OnPlayComicMusic(string payload) {
+            _clipToPlay = comicMusic;
         }
     }
 }
