@@ -858,6 +858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scytheSlay: {fileID: 8300000, guid: 3708e07bb9c78004b8ee40363dfdb7ec, type: 3}
   ghostDie: {fileID: 8300000, guid: e839d623f5368e942b284b780ced48e9, type: 3}
+  gate: {fileID: 8300000, guid: b0b6a01ec71f6364485f2e5bcf5b7747, type: 3}
 --- !u!1 &702057437
 GameObject:
   m_ObjectHideFlags: 0
