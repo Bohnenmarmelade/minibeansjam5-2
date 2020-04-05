@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Gate;
 using Ghost;
 using UnityEngine;
@@ -7,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace Utils {
     public class LevelController : MonoBehaviour {
-
+        
         public GameObject[] flummyTemplates;
         public GameObject gateTemplate;
         public GameObject ghostTemplate;
@@ -64,8 +65,10 @@ namespace Utils {
 
         private void CountDown() {
             _timeLeft -= Time.fixedDeltaTime;
+            //Debug.Log("time left: " +_timeLeft);
             timeIndicator.TimeLeft = _timeLeft;
             if (_timeLeft <= 0) {
+                Debug.Log("GAME OVER");
                 EventManager.TriggerEvent(Events.GAME_OVER, ""+_ghostCount);
             }
         }
@@ -74,11 +77,12 @@ namespace Utils {
             float extraTime = (float) bonusSecondsPerGhost * _ghostCount;
             _ghostCount = 0;
             _timeLeft += extraTime;
+            Debug.Log("time left after PAY: " +_timeLeft);
         }
 
         public void GateEntered() {
             if (!_isPlayerAtGate) {
-                Debug.Log("yo you entered the gate to heaven");
+                //Debug.Log("yo you entered the gate to heaven");
                 _gateController.Open();
                 _isPlayerAtGate = true;
                 PayGhosts();
@@ -87,7 +91,7 @@ namespace Utils {
 
         public void GateLeft() {
             if (_isPlayerAtGate) {
-                Debug.Log("yo you left the gate :(");
+                //Debug.Log("yo you left the gate :(");
                 _gateController.Close();
                 _isPlayerAtGate = false;
             }

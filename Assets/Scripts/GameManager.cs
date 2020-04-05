@@ -25,11 +25,13 @@ public class GameManager : MonoBehaviour
     }
 
     private void onStartGame(string eventPayload){
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("GameOverScene");
+        //SceneManager.LoadScene("MainScene");
     }
     private void onGameOver(string gameOverPayload) {
         Debug.Log("GameOver Dude!!! " +  gameOverPayload);
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("GameOverScene");
+        //SceneManager.LoadScene("MainScene");
     }
 }
 
