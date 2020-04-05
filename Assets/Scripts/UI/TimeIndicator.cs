@@ -20,7 +20,7 @@ namespace UI {
         }
 
         private void FixedUpdate() {
-            _textMesh.text = ((int) Math.Floor(_timeLeft)) + "s";
+            _textMesh.text = ((int) Math.Floor(_timeLeft)) + "";
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Gate;
 using Ghost;
+using UI;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,9 +16,12 @@ namespace Utils {
         public GameObject ghostTemplate;
         public GameObject boxTemplate;
         public GameObject obstacleParent;
+
         private GateController _gateController;
         
+        
         public UI.TimeIndicator timeIndicator;
+        private Vector3 timeIndicatorOffset = new Vector3(-1f,2.9f,0f);
 
         [SerializeField] private float levelBoundsMinX = -20;
         [SerializeField] private float levelBoundsMaxX = 20;
@@ -105,6 +109,7 @@ namespace Utils {
             pos.x = Random.Range(levelBoundsMinX, levelBoundsMaxX);
 
             var i = Instantiate(gateTemplate, pos, Quaternion.identity);
+            timeIndicator.transform.position = pos+timeIndicatorOffset;
             _gateController = i.GetComponent<GateController>();
         }
 
