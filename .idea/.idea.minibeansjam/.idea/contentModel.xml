@@ -17,6 +17,7 @@
             <e p="FogMovement.cs" t="Include" />
           </e>
           <e p="char" t="Include">
+            <e p="AttackController.cs" t="Include" />
             <e p="CharController.cs" t="Include" />
             <e p="CharMovement.cs" t="Include" />
             <e p="ScytheController.cs" t="Include" />

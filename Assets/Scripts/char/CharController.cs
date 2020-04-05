@@ -7,8 +7,9 @@ namespace Char {
 
         public LevelController levelController;
         
-        public ScytheController scytheController;
-    
+        //public ScytheController scytheController;
+        private AttackController _attackController;
+        
         [SerializeField] private float jumpForce = 100f;
     
         [SerializeField] private LayerMask groundLayerMask;							// A mask determining what is ground to the character
@@ -35,6 +36,7 @@ namespace Char {
         private void Awake() {
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
+            _attackController = GetComponent<AttackController>();
         }
 
 
@@ -77,7 +79,7 @@ namespace Char {
             if (attack) {
                 _animator.SetTrigger(Attack);
                 int sign = _isFacingRight ? 1 : -1;
-                scytheController.Attack(sign);
+                _attackController.Attack();
                 EventManager.TriggerEvent(Events.SFX_SCYTHE, "");
             }
 

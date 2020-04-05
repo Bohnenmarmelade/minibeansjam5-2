@@ -51,7 +51,7 @@ namespace Utils {
         }
 
         public void targetHit(Collider2D other) {
-            Debug.Log("target hit");
+            //Debug.Log("target hit");
             if (other.CompareTag($"Enemy")) {
                 _ghostCount++;
                 other.GetComponent<GhostController>().Die();
