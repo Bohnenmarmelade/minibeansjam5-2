@@ -9,6 +9,8 @@
         public const string SFX_SCYTHE = "sfxScythe";
         public const string SFX_GHOST_DIE = "sfxGhostDie";
         public const string SFX_GATE = "sfxGate";
+        public static string SFX_BOX = "sfxBox";
+        public static string SFX_TICK = "sfxTick";
         
         public const string MUSIC_COMIC = "musicComic";
         public const string MUSIC_GAME = "musicGame";

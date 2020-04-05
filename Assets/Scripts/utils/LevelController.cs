@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Gate;
@@ -43,7 +44,8 @@ namespace Utils {
         private float _timeLeft;
 
         private bool _isPlayerAtGate = false;
-        
+
+        private int lastTickAt = 11;
 
         private void Awake() {
             _ghosts = new List<GameObject>();
@@ -57,12 +59,13 @@ namespace Utils {
         }
 
         public void targetHit(Collider2D other) {
-            //Debug.Log("target hit");
             if (other.CompareTag($"Enemy")) {
                 _ghostCount++;
                 Debug.Log("you have " + _ghostCount + " souls");
                 other.GetComponent<GhostController>().Die();
                 _counterController.SetCount(_ghostCount);
+            } else if (other.CompareTag($"Box")) {
+                EventManager.TriggerEvent(Events.SFX_BOX);
             }
         }
 
@@ -81,12 +84,23 @@ namespace Utils {
                 Debug.Log("GAME OVER");
                 EventManager.TriggerEvent(Events.GAME_OVER, ""+_ghostCount);
             }
+
+            if (_timeLeft <= 10f) {
+                int t = (int) Math.Floor(_timeLeft);
+                if (lastTickAt > t) {
+                    lastTickAt = t;
+                    EventManager.TriggerEvent(Events.SFX_TICK);
+                }
+            }
         }
 
         private void PayGhosts() {
             float extraTime = (float) bonusSecondsPerGhost * _ghostCount;
             _ghostCount = 0;
             _timeLeft += extraTime;
+            if (_timeLeft > 10) {
+                lastTickAt = 11;
+            }
             _counterController.SetCount(_ghostCount);
         }
 

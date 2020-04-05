@@ -25,9 +25,7 @@ namespace Char {
             this._isAttack = true;
             this._attackEndTime = Time.time + attackDuration;
         }
-
-        private void Update() {
-        }
+        
 
         private void OnDrawGizmos() {
             Gizmos.DrawWireSphere(transform.position, 0.5f);
