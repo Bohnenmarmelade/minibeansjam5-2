@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using Gate;
 using Ghost;
 using UI;
+using UnityEditorInternal;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -60,10 +61,13 @@ namespace Utils {
 
         public void targetHit(Collider2D other) {
             if (other.CompareTag($"Enemy")) {
-                _ghostCount++;
-                Debug.Log("you have " + _ghostCount + " souls");
-                other.GetComponent<GhostController>().Die();
-                _counterController.SetCount(_ghostCount);
+                var c = other.GetComponent<GhostController>();
+                if (!c.IsHit) {
+                    _ghostCount++;
+                    Debug.Log("you have " + _ghostCount + " souls");
+                    c.Die();
+                    _counterController.SetCount(_ghostCount);
+                }
             } else if (other.CompareTag($"Box")) {
                 EventManager.TriggerEvent(Events.SFX_BOX);
             }

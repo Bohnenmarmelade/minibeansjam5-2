@@ -10,6 +10,13 @@ namespace Ghost {
         [SerializeField][Range(0.1f, 10f)] private float wobbleAmplitude = 7f;
         private Animator _animator;
 
+        private bool _isHit = false;
+
+        public bool IsHit {
+            get => _isHit;
+            set => _isHit = value;
+        }
+
         public float WobbleSpeed {
             get => wobbleSpeed;
             set => wobbleSpeed = value;
@@ -54,6 +61,7 @@ namespace Ghost {
         }
 
         public void Die() {
+            _isHit = true;
             EventManager.TriggerEvent(Events.SFX_GHOST_DIE, "");
             _animator.SetTrigger(Dead);
             Destroy(gameObject, .31f);

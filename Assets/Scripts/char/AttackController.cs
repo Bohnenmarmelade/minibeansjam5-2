@@ -47,10 +47,10 @@ namespace Char {
 
         private void CheckHits() {
             Collider2D[] targets = Physics2D.OverlapCircleAll(hitbox.position, attackRange, enemyLayers);
-            foreach (Collider2D collider in targets) {
-                if (!currentTargets.Contains(collider)) {
-                    currentTargets.Add(collider);
-                    levelController.targetHit(collider);
+            if (targets.Length > 0) {
+                if (!currentTargets.Contains(targets[0])) {
+                    currentTargets.Add(targets[0]);
+                    levelController.targetHit(targets[0]);
                 }
             }
         }
