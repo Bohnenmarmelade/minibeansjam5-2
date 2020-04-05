@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 1
-  debugScene: MainScene
+  debugScene: TitleScene
 --- !u!1 &377269557
 GameObject:
   m_ObjectHideFlags: 0
