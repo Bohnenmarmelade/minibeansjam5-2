@@ -5,7 +5,7 @@ namespace UI {
     public class ButtonTriggers : MonoBehaviour
     {
         public void OnRestartButton() {
-            EventManager.TriggerEvent(Events.SHOW_TITLE);
+            EventManager.TriggerEvent(Events.START_GAME);
         }
 
         public void OnStartButton() {

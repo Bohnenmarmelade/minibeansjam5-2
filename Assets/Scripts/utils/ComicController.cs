@@ -6,7 +6,7 @@ using Utils;
 public class ComicController : MonoBehaviour {
 
 
-    private readonly float _delay = 30f;
+    private readonly float _delay = 29f;
     private float _nextSceneTime;
     
     private void Awake() {
